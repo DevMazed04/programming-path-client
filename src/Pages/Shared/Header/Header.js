@@ -39,8 +39,7 @@ const Header = () => {
             <li className="nav-item mx-1">
               <Link className="nav-link active" to="/blog">Blog</Link>
             </li>
-
-
+            
             <li className="nav-item mx-1 text-white mt-2">
               <p>Dark</p>
             </li>
