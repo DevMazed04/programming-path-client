@@ -34,27 +34,27 @@ const Header = () => {
               <Link className="nav-link active" to="/courses">Courses</Link>
             </li>
             <li className="nav-item mx-1">
-              <Link className="nav-link active" to="/blog">FAQ</Link>
+              <Link className="nav-link active" to="/faq">FAQ</Link>
             </li>
             <li className="nav-item mx-1">
               <Link className="nav-link active" to="/blog">Blog</Link>
             </li>
-            {/* <li className="nav-item mx-1">
-              <Link className="nav-link active fw-bold log-in" to="/login">Login</Link>
-            </li> */}
+
+
+            <li className="nav-item mx-1 text-white mt-2">
+              <p>Dark</p>
+            </li>
+
+
             <li className="nav-item mx-1 d-flex align-items-center">
               <Link className="nav-link active fw-bold log-in" to="/">
                 {
                   user?.uid ?
-                    <>
-                      {/* <span>{user?.displayName}</span> */}
-                      <Link className="nav-link active fw-bold log-in" to="/login" onClick={handleLogout}>Logout
-                      </Link>
-                    </>
+
+                    <Link className="nav-link active fw-bold log-in" to="/login" onClick={handleLogout}>Logout
+                    </Link>
                     :
-                    <>
-                      <Link className="nav-link active fw-bold log-in" to="/login">Login</Link>
-                    </>
+                    <Link className="nav-link active fw-bold log-in" to="/login">Login</Link>
                 }
               </Link>
             </li>
