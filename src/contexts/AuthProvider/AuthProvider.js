@@ -11,17 +11,23 @@ const AuthProvider = ({ children }) => {
    const [loading, setLoading] = useState(true);
 
    const providerLogin = (provider) => {
+      setLoading(true);
       return signInWithPopup(auth, provider);
    }
 
    const createUser = (email, password) => {
+      setLoading(true);
       return createUserWithEmailAndPassword(auth, email, password);
    }
 
-   const logIn = (email, password) => signInWithEmailAndPassword(auth, email, password);
+   const logIn = (email, password) => {
+      setLoading(true);
+      return signInWithEmailAndPassword(auth, email, password);
+   }
 
    const logOut = () => {
-      return signOut(auth)
+      setLoading(true);
+      return signOut(auth);
    }
 
    useEffect(() => {
@@ -35,7 +41,7 @@ const AuthProvider = ({ children }) => {
       }
    }, [])
 
-   const authInfo = { user, providerLogin, createUser, logIn, logOut }
+   const authInfo = { user, loading, providerLogin, createUser, logIn, logOut }
 
    return (
       <AuthContext.Provider value={authInfo}>

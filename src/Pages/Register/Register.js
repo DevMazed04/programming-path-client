@@ -137,7 +137,7 @@ const Register = () => {
                </div>
                <p className="m-0 text-center">
                   <small>
-                     Already have an account? Please
+                     Already have an account? Please <span> </span>
                      <Link to="/login">
                         <b>Login</b>
                      </Link>

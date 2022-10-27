@@ -8,6 +8,7 @@ import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login";
 import Page404 from "../../Pages/Page404/Page404";
 import Register from "../../Pages/Register/Register";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 // import LeftSideNav from "../../Pages/Shared/LeftSideNav/LeftSideNav";
 
 export const routes = createBrowserRouter([
@@ -35,7 +36,10 @@ export const routes = createBrowserRouter([
       },
       {
         path: '/checkout',
-        element: <Checkout></Checkout>
+        element:
+          <PrivateRoute>
+            <Checkout></Checkout>
+          </PrivateRoute>
       },
       {
         path: '/faq',

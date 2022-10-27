@@ -2,7 +2,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { GoogleAuthProvider } from "firebase/auth";
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./Login.css";
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { useContext } from "react";
@@ -10,8 +10,10 @@ import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 
 const Login = () => {
   const { providerLogin, logIn } = useContext(AuthContext);
-
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/";
 
   const googleProvider = new GoogleAuthProvider();
 
@@ -30,7 +32,7 @@ const Login = () => {
         console.log(user);
         form.reset();
         setError("");
-        navigate("/");
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.error("error", error);
@@ -113,7 +115,7 @@ const Login = () => {
 
           <p className="m-0 text-center mt-3">
             <small>
-              Don't have an account? Please
+              Don't have an account? Please <span> </span>
               <Link to="/register">
                 <b>Register</b>
               </Link>
