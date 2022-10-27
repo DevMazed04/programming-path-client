@@ -20,6 +20,10 @@ export const routes = createBrowserRouter([
         element: <Home></Home>
       },
       {
+        path: '/home',
+        element: <Home></Home>
+      },
+      {
         path: '/courses',
         element: <Courses></Courses>,
         loader: () => fetch("https://programming-path-server.vercel.app/courses")
