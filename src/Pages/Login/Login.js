@@ -1,12 +1,13 @@
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { GoogleAuthProvider } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./Login.css";
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
+import toast from "react-hot-toast";
 
 const Login = () => {
   const { providerLogin, logIn } = useContext(AuthContext);
@@ -16,6 +17,7 @@ const Login = () => {
   const from = location.state?.from?.pathname || "/";
 
   const googleProvider = new GoogleAuthProvider();
+  const githubProvider = new GithubAuthProvider();
 
   const [error, setError] = useState("");
 
@@ -47,6 +49,21 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        console.error("error", error);
+      });
+  };
+
+  const handleGithubSignIn = (event) => {
+    event.preventDefault();
+
+    providerLogin(githubProvider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.error("error", error);
@@ -106,6 +123,7 @@ const Login = () => {
                 variant="outline-secondary"
                 type="submit"
                 className="w-100 rounded-pill"
+                onClick={handleGithubSignIn}
               >
                 <FaGithub className="fs-5"></FaGithub>
                 <span className="ms-2">GitHub</span>

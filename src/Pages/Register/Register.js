@@ -1,13 +1,13 @@
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-// import { sendEmailVerification, updateProfile } from 'firebase/auth';
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Register.css";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
+import toast from "react-hot-toast";
 
 const Register = () => {
-   const { createUser } = useContext(AuthContext);
+   const { createUser, updateUserProfile } = useContext(AuthContext);
 
    const [error, setError] = useState("");
    const [userSuccess, setuserSuccess] = useState(false);
@@ -42,8 +42,8 @@ const Register = () => {
             setuserSuccess(true);
             setError("");
             form.reset();
-            // verifyEmail();
-            // updateUserName(name);
+            handleUpdateUserProfile(name, photoURL);
+            window.location.reload();
          })
          .catch((error) => {
             console.error("error", error);
@@ -52,22 +52,17 @@ const Register = () => {
          });
    };
 
-   // const verifyEmail = () => {
-   //    sendEmailVerification(auth.currentUser)
-   //       .then(() => {
-   //          alert('Verification email sent. Check your email');
-   //       })
-   // }
-
-   // const updateUserName = (name) => {
-   //    updateProfile(auth.currentUser, {
-   //       displayName: name
-   //    })
-   //       .then(() => {
-   //          console.log('Profile Updated!')
-   //       })
-   //       .catch((error) => console.error('error', error));
-   // }
+   const handleUpdateUserProfile = (name, photoURL) => {
+      const profile = {
+         displayName: name,
+         photoURL: photoURL,
+      };
+      updateUserProfile(profile)
+         .then(() => {
+            console.log("Profile Updated!");
+         })
+         .catch((error) => console.error("error", error));
+   };
 
    return (
       <div className="register mx-auto shadow-lg p-4 rounded-4 mt-5 mb-5">
