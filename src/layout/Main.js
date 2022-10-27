@@ -11,32 +11,10 @@ import Col from 'react-bootstrap/Col';
 
 const Main = () => {
    return (
-      // <div className="text-center">
-      //    <Header></Header>
-
-      //    <div className="container mb-5">
-      //       <div className="row">
-      //          <div className="col col-lg-2 left-nav rounded-3 text-start">
-      //             <LeftSideNav></LeftSideNav>
-      //          </div>
-
-      //          <div className="col col-lg-10 outlet rounded-3">
-      //             <Outlet></Outlet>
-      //          </div>
-
-      //          {/* <div className="col col-lg-3 right-nav rounded-3">
-      //             <RightSideNav></RightSideNav>
-      //          </div> */}
-      //       </div>
-      //    </div>
-
-      //    <Footer></Footer>
-      // </div>
-
       <div>
          <Header></Header>
          <div>
-            <Container>
+            <Container className='mb-4'>
                <Row>
                   {/* <Col lg="2" className='text-start left-nav rounded-2'>
                      <LeftSideNav></LeftSideNav>
