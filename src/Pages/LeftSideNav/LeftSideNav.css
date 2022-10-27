@@ -1,0 +1,7 @@
+.courses-title {
+   text-decoration: none;
+}
+
+.courses-title:hover{
+   font-weight: bold;
+}

@@ -15,7 +15,7 @@ const Courses = () => {
     <div className='text-center'>
       <Container>
         <Row>
-          <Col lg="3" className='text-start left-nav rounded-2'>
+          <Col lg="3" className='text-start bg-white rounded-2 p-4 rounded-3'>
             <LeftSideNav></LeftSideNav>
           </Col>
 
