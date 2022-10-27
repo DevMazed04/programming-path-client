@@ -1,12 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Header.css';
-import { FaLaptopCode } from 'react-icons/fa';
+import { FaLaptopCode, FaUserCircle } from 'react-icons/fa';
 import { useContext } from 'react';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 const Header = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogout = () => {
+    logOut()
+      .then(() => { })
+      .catch((error) => console.error(error))
+  }
 
   return (
     <nav className="navbar navbar-expand-lg nav-bg navbar-dark mb-5 sticky-top">
@@ -33,19 +39,38 @@ const Header = () => {
             <li className="nav-item mx-1">
               <Link className="nav-link active" to="/blog">Blog</Link>
             </li>
-            <li className="nav-item mx-1">
+            {/* <li className="nav-item mx-1">
               <Link className="nav-link active fw-bold log-in" to="/login">Login</Link>
-            </li>
-            <li className="nav-item mx-1">
-              <Link className="nav-link active fw-bold log-in" to="/">{user?.displayName}</Link>
+            </li> */}
+            <li className="nav-item mx-1 d-flex align-items-center">
+              <Link className="nav-link active fw-bold log-in" to="/">
+                {
+                  user?.uid ?
+                    <>
+                      {/* <span>{user?.displayName}</span> */}
+                      <Link className="nav-link active fw-bold log-in" to="/login" onClick={handleLogout}>Logout
+                      </Link>
+                    </>
+                    :
+                    <>
+                      <Link className="nav-link active fw-bold log-in" to="/login">Login</Link>
+                    </>
+                }
+              </Link>
             </li>
           </ul>
-          {/* <span className="navbar-text">
+          <span className="navbar-text">
             <Link className="navbar-brand ms-2 me-0" to="/">
-              <img src="" alt="" width="30" height="28"
-                className="d-inline-block align-text-top rounded-pill" />
+              {
+                user?.photoURL ?
+                  <img
+                    src={user.photoURL} alt="" width="30" height="28"
+                    className="d-inline-block align-text-top rounded-pill" title={user?.displayName} />
+                  :
+                  <FaUserCircle className='fs-4'></FaUserCircle>
+              }
             </Link>
-          </span> */}
+          </span>
         </div>
       </div>
     </nav>
