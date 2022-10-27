@@ -7,7 +7,6 @@ import "./Login.css";
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
-import toast from "react-hot-toast";
 
 const Login = () => {
   const { providerLogin, logIn } = useContext(AuthContext);

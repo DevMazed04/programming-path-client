@@ -4,7 +4,6 @@ import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Register.css";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
-import toast from "react-hot-toast";
 
 const Register = () => {
    const { createUser, updateUserProfile } = useContext(AuthContext);
@@ -24,13 +23,13 @@ const Register = () => {
 
       if (!/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%&?])/.test(password)) {
          setError(
-            "Password should contain at least one lowercase, one uppercase letter, one digit and one special character!"
+            "Password should contain at least one lowercase and uppercase letter, one digit and one special character!"
          );
          return;
       }
 
       if (password.length < 6) {
-         setError("Password should be at least 6 character long!");
+         setError("Password should be minimum 6 characters long!");
          return;
       }
       setError("");
