@@ -13,11 +13,12 @@
 }
 
 .log-in:hover {
-   color: rgb(137, 233, 233) !important;
+   /* color: rgb(137, 233, 233) !important; */
    color: rgb(16, 141, 219) !important;
 }
 
 .nav-link:hover {
    /* font-size: 18px; */
    font-weight: bold;
+   color: rgb(16, 141, 219) !important;
 }

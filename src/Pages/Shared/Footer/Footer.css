@@ -3,3 +3,13 @@
    color: black !important;
    padding: 12px !important;
 }
+
+.footer-info {
+   color: rgb(16, 141, 219) !important;
+   font-weight: 500 !important;
+}
+
+.footer-info:hover {
+   font-weight: bold !important;
+   color: rgb(16, 141, 219) !important;
+}

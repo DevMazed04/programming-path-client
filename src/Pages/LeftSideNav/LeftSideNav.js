@@ -12,7 +12,7 @@ const LeftSideNav = () => {
   }, [])
   return (
     <div>
-      <h5 className='mb-4 text-center fw-bold'>All Courses: {courses.length}</h5>
+      <h5 className='mb-4 text-lg-center fw-bold'>All Courses: {courses.length}</h5>
       <div>
         {
           courses.map(course =>
