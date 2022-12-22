@@ -15,7 +15,7 @@ const Header = () => {
   }
 
   return (
-    <nav className="navbar navbar-expand-lg nav-bg navbar-dark mb-5 sticky-top">
+    <nav className="navbar navbar-expand-lg nav-bg navbar-dar mb-5 sticky-top shadow-lg">
       <div className="container-fluid">
         <Link className="navbar-brand fw-bold" to="/">
           <FaLaptopCode className='fs-3 path'></FaLaptopCode>
@@ -26,7 +26,7 @@ const Header = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarText">
-          <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+          <ul className="navbar-nav ms-auto mb-0 pt-0 mb-lg-0">
             <li className="nav-item mx-1">
               <Link className="nav-link active" aria-current="page" to="/home">Home</Link>
             </li>
@@ -36,40 +36,40 @@ const Header = () => {
             <li className="nav-item mx-1">
               <Link className="nav-link active" to="/faq">FAQ</Link>
             </li>
-            <li className="nav-item mx-1">
-              <Link className="nav-link active" to="/blog">Blog</Link>
+            <li className="nav-item ms-1 me-3 mb-3 mb-lg-0">
+              <Link className="nav-link active" to="/blog">Blogs</Link>
             </li>
-            
-            <li className="nav-item mx-1 text-white mt-2">
+
+            {/* <li className="nav-item mx-1 text-white mt-2">
               <p>Dark</p>
-            </li>
-
-
-            <li className="nav-item mx-1 d-flex align-items-center">
-              <Link className="nav-link active fw-bold log-in" to="/">
-                {
-                  user?.uid ?
-
-                    <Link className="nav-link active fw-bold log-in" to="/login" onClick={handleLogout}>Logout
-                    </Link>
-                    :
-                    <Link className="nav-link active fw-bold log-in" to="/login">Login</Link>
-                }
-              </Link>
-            </li>
+            </li> */}
           </ul>
-          <span className="navbar-text">
-            <Link className="navbar-brand ms-2 me-0" to="/">
+          <li className="nav-item mx-1 d-flex align-items-center">
+            <Link className="nav-link active fw-bold log-in" to="/">
               {
-                user?.photoURL ?
-                  <img
-                    src={user.photoURL} alt="" width="30" height="28"
-                    className="d-inline-block align-text-top rounded-pill" title={user?.displayName} />
+                user?.uid ?
+                  <Link className="nav-link active fw-bold log-in" to="/login" onClick={handleLogout}>Logout
+                  </Link>
                   :
-                  <FaUserCircle className='fs-4'></FaUserCircle>
+                  <Link className="nav-link active fw-bold log-in" to="/login">Login</Link>
               }
             </Link>
-          </span>
+          </li>
+
+          <div className='mt-1 mt-lg-0 mb-2 mb-lg-0'>
+            <span className="navbar-text">
+              <Link className="navbar-brand ms-2 me-0" to="/">
+                {
+                  user?.photoURL ?
+                    <img
+                      src={user.photoURL} alt="" width="30" height="28"
+                      className="d-inline-block align-text-top rounded-pill" title={user?.displayName} />
+                    :
+                    <FaUserCircle className='fs-4'></FaUserCircle>
+                }
+              </Link>
+            </span>
+          </div>
         </div>
       </div>
     </nav>
