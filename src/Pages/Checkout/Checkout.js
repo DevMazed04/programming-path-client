@@ -1,11 +1,12 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import './Checkout.css';
 
 const Checkout = () => {
    const courseDetails = useLoaderData();
    const { name } = courseDetails;
    return (
-      <div>
+      <div className='checkout mx-auto'>
          <h2 className='text-center mb-5'>Checkout Page</h2>
 
          <h4 className='bg-white mx-auto p-5 rounded-5 text-center'>Premium access for

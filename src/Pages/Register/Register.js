@@ -80,7 +80,7 @@ const Register = () => {
                />
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicName">
+            {/* <Form.Group className="mb-3" controlId="formBasicName">
                <Form.Label>Photo URL</Form.Label>
                <Form.Control
                   className="border border-1"
@@ -88,7 +88,7 @@ const Register = () => {
                   name="photoURL"
                   placeholder="Enter photo URL"
                />
-            </Form.Group>
+            </Form.Group> */}
 
             <Form.Group className="mb-3" controlId="formBasicEmail">
                <Form.Label>Email</Form.Label>

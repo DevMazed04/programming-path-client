@@ -56,7 +56,7 @@ const Header = () => {
             </Link>
           </li>
 
-          <div className='mt-1 mt-lg-0 mb-2 mb-lg-0'>
+          {/* <div className='mt-1 mt-lg-0 mb-2 mb-lg-0'>
             <span className="navbar-text">
               <Link className="navbar-brand ms-2 me-0" to="/">
                 {
@@ -69,7 +69,7 @@ const Header = () => {
                 }
               </Link>
             </span>
-          </div>
+          </div> */}
         </div>
       </div>
     </nav>
